@@ -25,7 +25,7 @@ streamlit.header("Fruityvice Fruit Advice!")
 import requests
 
 # added a text entry box 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon" + fruit_choice)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # take the json version and normalize it 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # show the normalized version in tabular format
