@@ -25,7 +25,7 @@ fruit_choice = streamlit.text_input('What fruit would you like information about
 #writing the user entry
 streamlit.write('The user entered ', fruit_choice)
 
-streamlit.header("Fruityvice Fruit Advice!")
+
 
 #import requests
 #fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
@@ -43,9 +43,9 @@ try:
          streamlit.error("Please select a fruit to get information.")
    else:
         back_from_function=get_fruitvice_data(fruit_choice)
-        streamlit.dataframe()
+        streamlit.dataframe(back_from_function)
 except URLError as e:
-    streamlit.error(back_from_function)
+    streamlit.error()
 streamlit.stop()
 #import snowflake.connector
 
