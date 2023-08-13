@@ -28,11 +28,18 @@ streamlit.header("Fruityvice Fruit Advice!")
 #import requests
 
 # added a text entry box 
+try:
+   fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+ if not fruit_choice:
+   streamlit.error("Please select a fruit to get information.")
+ else:
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # take the json version and normalize it 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # show the normalized version in tabular format
 streamlit.dataframe(fruityvice_normalized)
+except URLError as e:
+  streamlit.error()
 streamlit.stop()
 #import snowflake.connector
 
